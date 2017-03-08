@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <meta charset="UTF-8"> 
+	<title>LCD panel example</title>
+	<style type="text/css">
+		div div {
+			background-color: lightgrey;
+		}
+		div.vertical {			
+			width: 20px;
+			height: 200px;
+			position: absolute;
+		}
+		div.active {
+			background-color: red;	
+		}
+		div.v1 {
+			margin-top: 0px;
+			margin-left: 0px;
+		}
+		div.v2 {
+			margin-top: 200px;
+			margin-left: 0px;
+		}
+		div.v3 {
+			margin-top: 0px;
+			margin-left: 200px;
+		}
+		div.v4 {
+			margin-top: 200px;
+			margin-left: 200px;
+		}
+		div.horizontal {
+			width:200px;
+			height:20px;
+			position: absolute;
+		}
+		div.h1 {
+			margin-top: 0px;
+			margin-right: 20px;
+		}
+		div.h2 {
+			margin-top: 200px;
+			margin-right: 20px;	
+		}
+		div.h3 {
+			margin-top: 400px;
+			margin-right: 20px;
+		}
+	</style>
+</head>
+<body  ng-app="myApp" ng-controller="myCtrl">
+	<input type="text"  placeholder="Please enter a number"  autofocus="true" ng-model="number" ng-change="evaluateChange()">
+	<br>
+	<br>
+	<span name="digit" ng-repeat="n in foo" style="width:250px;height:500px" >
+		<div class="vertical v1" ng-class="{active:'zero one four five six eight nine'.split(' ').indexOf(inputs[n]) >= 0}">
+		</div>
+		<div class="vertical v2" ng-class="{active:'zero one two six eight'.split(' ').indexOf(inputs[n]) >= 0}">
+		</div>
+		<div class="vertical v3" ng-class="{active:'zero two three four seven eight nine'.split(' ').indexOf(inputs[n]) >= 0}">
+		</div>
+		<div class="vertical v4" ng-class="{active:'zero three four five six seven eight nine'.split(' ').indexOf(inputs[n]) >= 0}">
+		</div>
+		<div class="horizontal h1" ng-class="{active:'zero two three five six seven eight nine'.split(' ').indexOf(inputs[n]) >= 0}">
+		</div>
+		<div class="horizontal h2" ng-class="{active:'two three four five six eight nine'.split(' ').indexOf(inputs[n]) >= 0}">
+		</div>
+		<div class="horizontal h3"  ng-class="{active:'zero two three five six eight nine'.split(' ').indexOf(inputs[n]) >= 0}">
+		</div>
+	</span>
+	
+	<script type="text/javascript" src="bower_components/angular/angular.js"></script>
+	
+	<script type="text/javascript">
+		var app = angular.module("myApp", []);		
+		app.controller("myCtrl", function($scope) {
+			$scope.digits = "zero,one,two,three,four,five,six,seven,eight,nine".split(',');
+			$scope.inputs = [''];
+			$scope.number ='';
+			$scope.foo = [''];
+
+		    $scope.evaluateChange = function () {
+		    	console.info('$scope.number: '+$scope.number);
+		    	$scope.inputs = (""+$scope.number)
+		    	.split("")
+		    	.map(d => $scope.digits[d]);
+		    	var foo = [];
+		    	console.info("$scope.inputs.length: "+$scope.inputs.length);
+				for (var i = 0; i < $scope.inputs.length;	 i++) {
+				   foo.push(''+i);
+				}
+				$scope.foo = foo;
+		    	
+		    	console.info('foo: '+$scope.foo.join(','));
+		    }
+		
+		});	
+	</script>
+
+</body>
+</html>

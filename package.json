@@ -1,0 +1,41 @@
+{
+  "name": "zone-activity",
+  "version": "1.0.0",
+  "description": "A simple LCD panel",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/dafelcardozo/zone-activity.git"
+  },
+  "keywords": [
+    "Frontend",
+    "developer",
+    "test",
+    "Rock3labs"
+  ],
+  "author": "Felipe Cardozo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dafelcardozo/zone-activity/issues"
+  },
+  "homepage": "https://github.com/dafelcardozo/zone-activity#readme",
+  "devDependencies": {
+    "browser-sync": "^2.13.0",
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^2.0.11",
+    "gulp-concat": "^2.6.0",
+    "gulp-minify": "0.0.12",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.3.2",
+    "gulp-uglify": "^1.5.4",
+    "gulp-useref": "^3.1.0",
+    "jshint": "^2.9.2"
+  },
+  "dependencies": {
+    "ejs": "^2.4.2",
+    "express": "^4.14.0"
+  }
+}
