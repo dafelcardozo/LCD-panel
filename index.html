@@ -4,72 +4,120 @@
  <meta charset="UTF-8"> 
 	<title>LCD panel example</title>
 	<style type="text/css">
-		div div {
+		td div {
 			background-color: lightgrey;
+			border-radius: 2px;
 		}
 		div.vertical {			
-			width: 20px;
-			height: 200px;
+			width: 5px;
+			height: 45px;
 			position: absolute;
 		}
 		div.active {
 			background-color: red;	
 		}
 		div.v1 {
-			margin-top: 0px;
+			margin-top: 5px;
+			margin-left: 0px;
+		}
+		div.v11 {
+			margin-top: 52px;
 			margin-left: 0px;
 		}
 		div.v2 {
-			margin-top: 200px;
+			margin-top: 105px;
+			margin-left: 0px;
+		}
+		div.v22 {
+			margin-top: 152px;
 			margin-left: 0px;
 		}
 		div.v3 {
-			margin-top: 0px;
-			margin-left: 200px;
+			margin-top: 5px;
+			margin-left: 97px;
 		}
+		div.v33 {
+			margin-top: 52px;
+			margin-left: 97px;
+		}
+		
 		div.v4 {
-			margin-top: 200px;
-			margin-left: 200px;
+			margin-top: 105px;
+			margin-left: 97px;
+		}
+		div.v44 {
+			margin-top: 152px;
+			margin-left: 97px;
 		}
 		div.horizontal {
-			width:200px;
-			height:20px;
+			width:45px;
+			height:5px;
 			position: absolute;
 		}
 		div.h1 {
 			margin-top: 0px;
-			margin-right: 20px;
+			margin-left: 5px;
+		}
+		div.h11 {
+			margin-top: 0px;
+			margin-left: 52px;
 		}
 		div.h2 {
-			margin-top: 200px;
-			margin-right: 20px;	
+			margin-top: 100px;
+			margin-left: 5px;	
+		}
+		div.h22 {
+			margin-top: 100px;
+			margin-left: 52px;	
 		}
 		div.h3 {
-			margin-top: 400px;
-			margin-right: 20px;
+			margin-top: 200px;
+			margin-left: 5px;
+		}
+		div.h33 {
+			margin-top: 200px;
+			margin-left: 52px;
 		}
 	</style>
 </head>
 <body  ng-app="myApp" ng-controller="myCtrl">
 	<input type="text"  placeholder="Please enter a number"  autofocus="true" ng-model="number" ng-change="evaluateChange()">
-	<br>
-	<br>
-	<span name="digit" ng-repeat="n in foo" style="width:250px;height:500px" >
-		<div class="vertical v1" ng-class="{active:'zero one four five six eight nine'.split(' ').indexOf(inputs[n]) >= 0}">
-		</div>
-		<div class="vertical v2" ng-class="{active:'zero one two six eight'.split(' ').indexOf(inputs[n]) >= 0}">
-		</div>
-		<div class="vertical v3" ng-class="{active:'zero two three four seven eight nine'.split(' ').indexOf(inputs[n]) >= 0}">
-		</div>
-		<div class="vertical v4" ng-class="{active:'zero three four five six seven eight nine'.split(' ').indexOf(inputs[n]) >= 0}">
-		</div>
-		<div class="horizontal h1" ng-class="{active:'zero two three five six seven eight nine'.split(' ').indexOf(inputs[n]) >= 0}">
-		</div>
-		<div class="horizontal h2" ng-class="{active:'two three four five six eight nine'.split(' ').indexOf(inputs[n]) >= 0}">
-		</div>
-		<div class="horizontal h3"  ng-class="{active:'zero two three five six eight nine'.split(' ').indexOf(inputs[n]) >= 0}">
-		</div>
-	</span>
+	
+	<table >
+		<tr>
+			<td name="digit" ng-repeat="n in foo" style="width:125px;height:250px;padding:15px" >
+				<div class="vertical v1" ng-class="{active:'zero one four five six eight nine'.split(' ').indexOf(inputs[n]) >= 0}">
+				</div>
+				<div class="vertical v11" ng-class="{active:'zero one four five six eight nine'.split(' ').indexOf(inputs[n]) >= 0}">
+				</div>
+				<div class="vertical v2" ng-class="{active:'zero one two six eight'.split(' ').indexOf(inputs[n]) >= 0}">
+				</div>
+				<div class="vertical v22" ng-class="{active:'zero one two six eight'.split(' ').indexOf(inputs[n]) >= 0}">
+				</div>
+				<div class="vertical v3" ng-class="{active:'zero two three four seven eight nine'.split(' ').indexOf(inputs[n]) >= 0}">
+				</div>
+				<div class="vertical v33" ng-class="{active:'zero two three four seven eight nine'.split(' ').indexOf(inputs[n]) >= 0}">
+				</div>
+				<div class="vertical v4" ng-class="{active:'zero three four five six seven eight nine'.split(' ').indexOf(inputs[n]) >= 0}">
+				</div>
+				<div class="vertical v44" ng-class="{active:'zero three four five six seven eight nine'.split(' ').indexOf(inputs[n]) >= 0}">
+				</div>
+				<div class="horizontal h1" ng-class="{active:'zero two three five six seven eight nine'.split(' ').indexOf(inputs[n]) >= 0}">
+				</div>
+				<div class="horizontal h11" ng-class="{active:'zero two three five six seven eight nine'.split(' ').indexOf(inputs[n]) >= 0}">
+				</div>
+				<div class="horizontal h2" ng-class="{active:'two three four five six eight nine'.split(' ').indexOf(inputs[n]) >= 0}">
+				</div>
+				<div class="horizontal h22" ng-class="{active:'two three four five six eight nine'.split(' ').indexOf(inputs[n]) >= 0}">
+				</div>
+				<div class="horizontal h3"  ng-class="{active:'zero two three five six eight nine'.split(' ').indexOf(inputs[n]) >= 0}">
+				</div>
+				<div class="horizontal h33"  ng-class="{active:'zero two three five six eight nine'.split(' ').indexOf(inputs[n]) >= 0}">
+				</div>
+			</td>
+
+		</tr>
+	</table>
 	
 	<script type="text/javascript" src="bower_components/angular/angular.js"></script>
 	
